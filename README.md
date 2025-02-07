@@ -1,123 +1,120 @@
-# 🐍 Python Basic Programming Exercises  
+## Python Basic Programming Exercises
 
-## 📌 Project Overview  
-This project is a collection of Python programming exercises designed to enhance fundamental coding skills in data analytics. It covers numerical operations, control structures, data handling, and user-defined functions (UDFs), making it an essential component of a **data analytics portfolio**.  
+### Overview
+Welcome to my Data Analytics Portfolio! This repository showcases fundamental Python programming exercises designed to sharpen problem-solving and data manipulation skills. The exercises cover numerical operations, control structures, user-defined functions (UDFs), list manipulations, and more.
 
----
-
-## 🛠️ Tools & Techniques  
-- **Language**: Python  
-- **Libraries**: `pandas`, `numpy`  
-- **Concepts Covered**:  
-  - Arithmetic & logical operations  
-  - Conditional statements & loops  
-  - List & dictionary manipulations  
-  - String operations  
-  - Custom functions & lambda expressions  
-  - Data validation & error handling  
+These foundational concepts are essential for data analytics, enabling efficient data processing and transformation. Recruiters and data enthusiasts can explore my work to understand my approach to coding, logic-building, and problem-solving in Python.
 
 ---
 
-## 🔍 Key Exercises  
-
-# 1️⃣ Mathematical & Logical Operations
+## 📌 Project Highlights
+### 1️⃣ Arithmetic Operations in Python
+**Question:** What is the output of the following expression?
+```python
+5 + 4 * 9 % (3 + 1) / 6 - 1
+```
+**Solution:**
 ```python
 result = 5 + 4 * 9 % (3 + 1) / 6 - 1
-print(result)  # Output: 5.0
-
-num = int(input("Enter a number: "))
-print(f"{num} is even") if num % 2 == 0 else print(f"{num} is odd")
-
-num1 = int(input("Enter your number here: "))
-for i in range(1, 11):
-    print(f"{num1} * {i} = {num1 * i}")
-
-for i in range(2000, 3201):
-    if i % 7 == 0 and i % 5 != 0:
-        print(i, end=",")
+print(result)  # Output: ??
 ```
-# 2️⃣ List & Dictionary Operations
+---
+
+### 2️⃣ Checking Odd or Even Number
+**Question:** Write a program to check if a number is odd or even.
+```python
+num = int(input("Enter the number here: "))
+print(num, "is even") if num % 2 == 0 else print(num, "is odd")
+```
+---
+
+### 3️⃣ Multiplication Table Generator
+**Question:** Write a program to display the multiplication table of a given number.
+```python
+num = int(input("Enter your number here: "))
+for i in range(1, 11):
+    print(f"{num} * {i} = {num * i}")
+```
+---
+
+### 4️⃣ Finding Numbers Divisible by 7 but Not by 5
+**Question:** Find all numbers between 2000 and 3200 that are divisible by 7 but not multiples of 5.
+```python
+result = [i for i in range(2000, 3201) if i % 7 == 0 and i % 5 != 0]
+print(",".join(map(str, result)))
+```
+---
+
+### 5️⃣ Counting Data Types in a List
+**Question:** Count the elements of each data type in a given list.
 ```python
 l = [2, 3, 'Py', '10', 1, 'SQL', 5.5, True, 3, 'John', None, 7]
-integer, string, floatt, boolean = [], [], [], []
-for i in l:
-    if type(i) == int:
-        integer.append(i)
-    elif type(i) == float:
-        floatt.append(i)
-    elif type(i) == str:
-        string.append(i)
-    else:
-        boolean.append(i)
-print("Integer:", integer, "Float:", floatt, "String:", string, "Boolean:", boolean)
+types_count = {"int": 0, "float": 0, "str": 0, "bool": 0}
 
-ass = sum(i for i in l if isinstance(i, (int, float)))
-print("Sum of numeric values:", ass)
+for item in l:
+    if isinstance(item, int):
+        types_count["int"] += 1
+    elif isinstance(item, float):
+        types_count["float"] += 1
+    elif isinstance(item, str):
+        types_count["str"] += 1
+    elif isinstance(item, bool):
+        types_count["bool"] += 1
 
-strt = "-".join([i for i in l if isinstance(i, str)])
-print("Concatenated string:", strt)
-
-def summarize_list(l1):
-    num, string = 0, 0
-    for i in l1:
-        if isinstance(i, (int, float)):
-            num += i
-        elif isinstance(i, str):
-            string += 1
-    return {"Sum": num, "Count_of_Strs": string}
-print(summarize_list(l))
-
-li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61]
-print([i for i in li if i % 2 != 0])
-print(list(filter(lambda x: x % 2 != 0, li)))
+print(types_count)
 ```
+---
 
-# 3️⃣ Function Implementations
+### 6️⃣ Summing Numeric Values in a List
+**Question:** Sum all numeric values (int and float) in a given list.
 ```python
-def get_descriptives(lis):
-    return {"Sum": sum(lis), "Count": len(lis), "Min": min(lis), "Max": max(lis), "Mean": np.mean(lis)}
-print(get_descriptives([5, 7, 22, 97, 54, 62, 77, 23, 73, 61]))
-
-def calculate_area(shape, **kwargs):
-    if shape == "square" and "side" in kwargs:
-        return kwargs["side"] ** 2
-    elif shape == "rectangle" and "length" in kwargs and "width" in kwargs:
-        return kwargs["length"] * kwargs["width"]
-    elif shape == "circle" and "radius" in kwargs:
-        return 3.14 * kwargs["radius"] ** 2
-    else:
-        return "Invalid input"
-print(calculate_area("square", side=5))
-
-def reconcile_lists(l1, l2):
-    s1, s2 = set(l1), set(l2)
-    return {"Matched": list(s1 & s2), "Only in l1": list(s1 - s2), "Only in l2": list(s2 - s1)}
-print(reconcile_lists(['January', 'February', 'March', 'May'], ['January', 'February', 'April', 'June']))
-
-def is_prime(n):
-    return all(n % i != 0 for i in range(2, int(n ** 0.5) + 1)) and n > 1
-print(is_prime(7))
-
-def factorial(n):
-    return 1 if n in [0, 1] else n * factorial(n - 1)
-print(factorial(8))
-
-def generate_squared_dict(n):
-    return {i: i ** 2 for i in range(1, n + 1)}
-print(generate_squared_dict(8))
-
-num = input("Enter numbers separated by commas: ")
-list_nums = num.split(",")
-tuple_nums = tuple(list_nums)
-print(list_nums, tuple_nums)
-
-csv = input("Enter words separated by commas: ")
-print(",".join(sorted(csv.split(","))))
-
-words = "hello world and practice makes perfect and hello world again"
-print(" ".join(sorted(set(words.split()))))
-
-sent = input("Enter a sentence: ")
-uppercase, lowercase = sum(1 for i in sent if i.isupper()), sum(1 for i in sent if i.islower())
-print("UPPER CASE", uppercase, "LOWER CASE", lowercase)
+l = [2, 3, 'Py', '10', 1, 'SQL', 5.5, True, 3, 'John', None, 7]
+total = sum(i for i in l if isinstance(i, (int, float)))
+print(total)
 ```
+---
+
+### 7️⃣ Concatenating String Elements
+**Question:** Concatenate all string elements in a list with a hyphen.
+```python
+l = [2, 3, 'Py', '10', 1, 'SQL', 5.5, True, 3, 'John', None, 7]
+result = "-".join(str(i) for i in l if isinstance(i, str))
+print(result)
+```
+---
+
+### 8️⃣ User-Defined Function (UDF) for List Operations
+**Question:** Create a function that returns the sum of all numeric values and counts all string elements in a list.
+```python
+def process_list(l):
+    num_sum = sum(i for i in l if isinstance(i, (int, float)))
+    str_count = sum(1 for i in l if isinstance(i, str))
+    return {"Sum": num_sum, "Count_of_Strs": str_count}
+
+l = [2, 3, 'Py', '10', 1, 'SQL', 5.5, True, 3, 'John', None, 7]
+print(process_list(l))
+```
+---
+
+### 🔢 More Exercises Covered:
+✔️ Odd Number Extraction Using Loop, List Comprehension & Lambda Functions
+✔️ UDF for Statistical Summary (Sum, Count, Min, Mean, Max)
+✔️ Area Calculation for Different Shapes (Square, Rectangle, Circle)
+✔️ List Reconciliation (Find Common & Unique Elements in Two Lists)
+✔️ Prime Number Checker Using UDF
+✔️ Factorial Calculation Using Recursion
+✔️ Generating Dictionary of Squares
+✔️ Converting Comma-Separated Inputs into List & Tuple
+✔️ Sorting Words Alphabetically & Removing Duplicates
+✔️ Counting Uppercase & Lowercase Letters in a Sentence
+
+
+
+## 🎯 Key Takeaways
+✅ Strong foundation in Python programming
+✅ Logical thinking and problem-solving skills
+✅ Essential programming concepts for data analytics
+
+---
+
+
