@@ -5,6 +5,9 @@ Welcome to my Data Analytics Portfolio! This repository showcases fundamental Py
 
 These foundational concepts are essential for data analytics, enabling efficient data processing and transformation. Recruiters and data enthusiasts can explore my work to understand my approach to coding, logic-building, and problem-solving in Python.
 
+![Python-logo-notext svg](https://github.com/user-attachments/assets/8a343374-4a0d-421c-a50e-1a280f480241)
+
+
 ---
 
 ## 📌 Project Highlights
