@@ -1,2 +1,2 @@
 # Python-Basic-Execrcise
-This exercise contains basic python questions based on UDF's, lambda functions, factorials, prime numbers etc. This exercise is to test your basic understanding of python fundamentals.
+This project is a comprehensive exercise in Python programming that strengthens problem-solving skills through real-world coding challenges. It enhances logical thinking, function creation, data structure handling, and input validation. Perfect for aspiring data analysts looking to showcase their Python proficiency in a portfolio. 🚀
